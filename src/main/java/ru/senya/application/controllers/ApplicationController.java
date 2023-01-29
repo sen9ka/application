@@ -1,5 +1,7 @@
 package ru.senya.application.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/application")
+@Tag(name = "Микросервис Application")
 public class ApplicationController {
 
     @Value("${applicationLink}")
@@ -32,6 +35,7 @@ public class ApplicationController {
     Logger logger = LoggerFactory.getLogger(ApplicationController.class);
 
     @PostMapping("/")
+    @Operation(summary = " Прескоринг + запрос на расчёт возможных условий кредита. Request - LoanApplicationRequestDTO, response List<LoanOfferDTO>")
     public ResponseEntity<?> getLoanOffers(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
         logger.trace("Application API accessed");
         List<LoanOfferDTO> loanOfferDTOList = applicationService.makePostRequestToApplication(loanApplicationRequestDTO, applicationsUrl);
@@ -39,6 +43,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/offer")
+    @Operation(summary = "Выбор одного из предложений. Request LoanOfferDTO, response void")
     public ResponseEntity<?> getLoanOffers(@RequestBody LoanOfferDTO loanOfferDTO) {
         logger.trace("Offers API accessed");
         return applicationService.makePostRequestToOffer(loanOfferDTO, offersUrl);
