@@ -1,7 +1,6 @@
 package ru.senya.application.clients;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -21,7 +20,7 @@ public class DealClient {
 
     RestTemplateConfig restTemplateConfig;
 
-    public List<LoanOfferDTO> createPostRequestToApplication(LoanApplicationRequestDTO loanApplicationRequestDTO, String applicationsUrl) {
+    public List<LoanOfferDTO> createPostRequestToDealApplication(LoanApplicationRequestDTO loanApplicationRequestDTO, String applicationsUrl) {
         RestTemplate restTemplate = restTemplateConfig.getRestTemplate();
         HttpHeaders headers = restTemplateConfig.getHeaders();
 
@@ -31,7 +30,7 @@ public class DealClient {
         return responseEntity.getBody();
     }
 
-    public ResponseEntity<?> createPostRequestToOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
+    public ResponseEntity<Object> createPostRequestToDealOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
         RestTemplate restTemplate = restTemplateConfig.getRestTemplate();
         HttpHeaders headers = restTemplateConfig.getHeaders();
 

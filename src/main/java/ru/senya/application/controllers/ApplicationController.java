@@ -36,7 +36,7 @@ public class ApplicationController {
 
     @PostMapping("/")
     @Operation(summary = " Прескоринг + запрос на расчёт возможных условий кредита. Request - LoanApplicationRequestDTO, response List<LoanOfferDTO>")
-    public ResponseEntity<?> getLoanOffers(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
+    public ResponseEntity<Object> getLoanOffers(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
         logger.trace("Application API accessed");
         List<LoanOfferDTO> loanOfferDTOList = applicationService.makePostRequestToApplication(loanApplicationRequestDTO, applicationsUrl);
         return new ResponseEntity<>(loanOfferDTOList, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class ApplicationController {
 
     @PostMapping("/offer")
     @Operation(summary = "Выбор одного из предложений. Request LoanOfferDTO, response void")
-    public ResponseEntity<?> getLoanOffers(@RequestBody LoanOfferDTO loanOfferDTO) {
+    public ResponseEntity<Object> chooseLoanOffer(@RequestBody LoanOfferDTO loanOfferDTO) {
         logger.trace("Offers API accessed");
         return applicationService.makePostRequestToOffer(loanOfferDTO, offersUrl);
     }

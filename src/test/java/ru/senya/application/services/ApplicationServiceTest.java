@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import ru.senya.application.clients.DealClient;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.senya.application.entity.dto.LoanApplicationRequestDTO;
@@ -30,7 +29,7 @@ class ApplicationServiceTest {
     @DisplayName("RuntimeException при запросе к Application")
     void makePostRequestToApplication() {
         LoanApplicationRequestDTO loanApplicationRequestDTO = LoanApplicationRequestDTO.builder().build();
-        when(dealClient.createPostRequestToApplication(loanApplicationRequestDTO, URL)).thenThrow(RuntimeException.class);
+        when(dealClient.createPostRequestToDealApplication(loanApplicationRequestDTO, URL)).thenThrow(RuntimeException.class);
         assertThrows(RuntimeException.class, () -> applicationService.makePostRequestToApplication(loanApplicationRequestDTO, URL));
     }
 
@@ -38,7 +37,7 @@ class ApplicationServiceTest {
     @DisplayName("RuntimeException при запросе к Offer")
     void makePostRequestToOffer() {
         LoanOfferDTO loanOfferDTO = LoanOfferDTO.builder().build();
-        when(dealClient.createPostRequestToOffer(any(), any())).thenThrow(RuntimeException.class);
+        when(dealClient.createPostRequestToDealOffer(any(), any())).thenThrow(RuntimeException.class);
         assertThrows(RuntimeException.class, () -> applicationService.makePostRequestToOffer(loanOfferDTO, URL));
     }
 }
