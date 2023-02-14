@@ -17,13 +17,13 @@ public class ApplicationService {
 
     public List<LoanOfferDTO> makePostRequestToApplication(LoanApplicationRequestDTO loanApplicationRequestDTO, String applicationUrl) {
 
-        return dealClient.createPostRequestToApplication(loanApplicationRequestDTO, applicationUrl);
+        return dealClient.createPostRequestToDealApplication(loanApplicationRequestDTO, applicationUrl);
 
     }
 
-    public ResponseEntity<?> makePostRequestToOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
+    public ResponseEntity<Object> makePostRequestToOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
 
-        return dealClient.createPostRequestToOffer(loanOfferDTO, offersUrl);
+        return dealClient.createPostRequestToDealOffer(loanOfferDTO, offersUrl);
 
     }
 
