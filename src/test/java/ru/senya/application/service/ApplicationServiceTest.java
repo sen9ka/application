@@ -1,11 +1,11 @@
-package ru.senya.application.services;
+package ru.senya.application.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import ru.senya.application.clients.DealClient;
+import ru.senya.application.client.DealClient;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.senya.application.entity.dto.LoanApplicationRequestDTO;
 import ru.senya.application.entity.dto.LoanOfferDTO;

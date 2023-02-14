@@ -1,4 +1,4 @@
-package ru.senya.application.clients;
+package ru.senya.application.client;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;

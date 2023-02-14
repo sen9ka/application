@@ -1,9 +1,9 @@
-package ru.senya.application.services;
+package ru.senya.application.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import ru.senya.application.clients.DealClient;
+import ru.senya.application.client.DealClient;
 import ru.senya.application.entity.dto.LoanApplicationRequestDTO;
 import ru.senya.application.entity.dto.LoanOfferDTO;
 
